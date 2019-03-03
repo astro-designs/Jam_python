@@ -2,6 +2,7 @@
 from sense_hat import SenseHat
 from time import sleep
 from random import choice
+import sys
 
 # CREATE a sense object
 sense = SenseHat()
@@ -58,6 +59,11 @@ play = True
 
 sense.show_message("Keep the arrow pointing up", scroll_speed=0.05, text_colour=[100,100,100])
 
+if len(sys.argv) > 1:
+    name = sys.argv[1]
+else:
+    name = "Unknown player"
+
 # WHILE play == True 
 while play:
   
@@ -88,17 +94,17 @@ while play:
     print(y)
 
     # IF orientation matches the arrow...
-    if x == -1 and angle == 180:
+    if y == -1 and angle == 180:
         # ADD a point and turn the arrow green  
         sense.set_pixels(arrow_green)
         score += 1
-    elif x == 1 and angle == 0:
+    elif y == 1 and angle == 0:
       sense.set_pixels(arrow_green)
       score += 1
-    elif y == -1 and angle == 90:
+    elif x == -1 and angle == 90:
       sense.set_pixels(arrow_green)
       score += 1
-    elif y == 1 and angle == 270:
+    elif x == 1 and angle == 270:
       sense.set_pixels(arrow_green)
       score += 1
     else:
@@ -113,5 +119,6 @@ while play:
     sleep(0.5)
 
 # When loop is exited, display a message with the score  
-msg = "Your score was %s" % score
+msg = name + ", your score was %s" % score
 sense.show_message(msg, scroll_speed=0.05, text_colour=[100, 100, 100])
+print(msg)
