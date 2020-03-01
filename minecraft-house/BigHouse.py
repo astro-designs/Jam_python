@@ -8,9 +8,12 @@ mc = Minecraft.create()
 # Determine the Player's current position.
 x,y,z = mc.player.getTilePos()
 
-xrooms = 2   # Change this constant to adjust the number of rooms in the x-axis (left-right)
-zrooms = 2   # Change this constant to adjust the number of rooms in the z-axis (front-back)
-floors = 2  # Change this constant to set the number of floors
+# Number of rooms...
+xrooms = 1   # Change this constant to adjust the number of rooms in the x-axis (left-right)
+zrooms = 1   # Change this constant to adjust the number of rooms in the z-axis (front-back)
+floors = 1   # Change this constant to set the number of floors
+
+# Room size...
 width = 6    # Change this constant to set the width of each room
 depth = 7    # Change this constant to set the depth of the room
 height = 3   # Change this constant to set the height of each floor
